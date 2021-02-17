@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Bookish</title>
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/book.css">
+</head>
+<body>
+     <nav>
+          <div class="left">
+               <div class="brand typography">Bookish</div>
+               <div class="lg-hide collapsible"><i class="fas fa-bars"></i></div>
+          </div>
+          <div class="center sm-hide">
+               <div class="searchbar">
+                    <form action="/search" method="get">
+                         <input class="navbar-search" type="text" name="query" placeholder="searh book" oninput="searchBook(event)" >
+                         <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-results"></div>
+               </div>
+          </div>
+          <div class="right sm-hide">
+               <div class="user">
+                    <div class="username">{{ user.username }}</div>
+                    <div class="picture">B</div>
+               </div>
+          </div>
+     </nav>
+     <div class="main">
+          <div class="left sm-hide">
+               <a href="/newBook" class="new-book">New Book</a>
+          </div>
+          <div class="center">
+               <div class="msg">
+                    <span class="success">Success</span>
+                    <span class="error">Error</span>
+               </div>
+               <div class="book">
+                    <div class="image">
+                         <img src={{book.thumbnail}} alt="">
+                    </div>
+                    <div class="details">     
+                         <h2 class="title">{{book.title}}</h2>
+                         <div class='author'>
+                              <span class="name"><b>Author:</b> {{book.authors}}</span>
+                              <span class="published-year"><b>Published On:</b> {{book.published}}</span>
+                              <span class="rating"><b>Ratings:</b> {{book.rating}}/5</span>
+                         </div>
+                         <div class="genre"><b>Genre:</b> {{book.categories}}</div>
+                         <div class="description"><b>Description </b><br>{{book.description}}</div>
+                         <div class="btns">
+                               <div class="collection-btns">
+                              <div><i class="fa fa-bookmark"></i> Add to collections: </div>
+                                   <a onclick="AddtoCollection('haveRead')">Have Read</a>
+                                   <a onclick="AddtoCollection('nowReading')">Now Reading</a>
+                                   <a onclick="AddtoCollection('wantToRead')">Want to Read</a>
+                                   <a onclick="AddtoCollection('myFavourites')">My Favourites</a>
+                              </div>
+                              <a class="request" href="">Request</a>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <div class="right sm-hide">Right</div>
+     </div>
+<script src="https://kit.fontawesome.com/b5b791cd78.js" crossorigin="anonymous"></script>
+<script>
+     const book = {{json book}}
+     const AddtoCollection = async (collection)=>{
+          const collectionItem = {
+               GBID: book.GBID,
+               title: book.title,
+               author: book.author,
+               thumbnail: book.thumbnail
+          }
+          const url = '/collection/'+collection
+          const options = {
+               method: "POST",
+               headers: {'Content-Type': 'application/json;charset=utf-8'},
+               body: JSON.stringify(collectionItem)
+          }
+          let res = await fetch(url, options)
+          res.json().then(res=>{
+               displaySuccessMsg(res.message)
+          })
+     }
+
+     const displaySuccessMsg = (message)=>{
+          const msgBox = document.querySelector('.msg .success')
+          msgBox.innerHTML="Added Successfully"
+          msgBox.style.display="block"
+          setTimeout(()=>{
+               msgBox.style.display="none"
+          }, 3000)
+     }
+</script>
+<script src="/js/main.js"></script>
+</body>
+</html>

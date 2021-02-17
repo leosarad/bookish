@@ -1,0 +1,76 @@
+.book{
+     display: flex;
+     align-items: center;
+     margin: auto;
+     margin-top: 20px;
+     max-width: 768px;
+     background-color: #171717;
+     border-radius: 16px;
+     padding: 20px;
+}
+h2,h5{
+     margin: 0;
+}
+.book .image{
+     height: 240px;
+     margin-right: 16px;
+     display: flex;
+     align-items: center;
+}
+.book .image img{
+     height: 100%;
+     object-fit: cover;
+}
+
+.book .details .author{
+     color: #ccc;
+     display: flex;
+     flex-wrap: wrap;
+     margin: 8px 0;
+}
+.book .details .author>span{
+     margin: 0 16px 5px 0;
+}
+.book .details .genre{
+     color: #ccc;
+}
+
+.book .details .description{
+     text-align: justify;
+     margin: 12px 0;
+     color: #ccc;
+}
+.book .btns{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+}
+.book .collection-btns{
+     margin-bottom: 12px;
+}
+.book .collection-btns div{
+     margin-bottom: 8px;
+}
+.book .collection-btns a{
+     background-color: #fff;
+     padding: 3px 8px;
+     border-radius: 12px;
+     color: #333;
+     font-size: 12px;
+     text-decoration: none;
+}
+.book .collection-btns a:hover{
+     background-color: #0fca8c;
+     color: #fff;
+     cursor: pointer;
+}
+.book .btns a.request{
+     text-decoration: none;
+     display: block;
+     color: #fff;
+     background-color: #0fca8c;
+     width: 120px;
+     padding: 8px;
+     text-align: center;
+}

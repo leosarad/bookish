@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Bookish</title>
+</head>
+<link rel="stylesheet" href="css/index.css">
+<body>
+     <div id="form">
+          <h1>Bookish</h1>
+          <form method="post" action="/signin">
+               <div class="error">{{error}}</div>
+               <div class="inputs">
+                    <div class="input">
+                         <input type="text" name="email" placeholder="email">
+                    </div>
+                    <div class="input">
+                         <input type="password" name="password" placeholder="password">
+                    </div>
+               </div>
+               <div class="forgot-password">Forgot Password?</div>
+               <div class="submit">
+                    <div class="input">
+                         <input type="submit" value="signin" class="btn signin">
+                    </div>
+               </div>
+               <div class="oAuth">
+                    <div>or Connect using</div>
+                    <div>
+                         <a href="/auth/google">Google</span></a>
+                         <a href="/auth/facebook">Facebook</span></a>
+                    </div>
+               </div>
+               <div class="oAuth">
+                    <span>Dont have an account?</span>
+                    <a href="/signup">Signup</span></a>
+               </div>
+          </form>
+     </div>
+</body>
+<script src="https://kit.fontawesome.com/b5b791cd78.js" crossorigin="anonymous"></script>
+</html>

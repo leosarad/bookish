@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Bookish</title>
+     <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+     <nav>
+          <div class="left">
+               <div class="brand typography">Bookish</div>
+               <div class="lg-hide collapsible"><i class="fas fa-bars"></i></div>
+          </div>
+          <div class="center sm-hide">
+               <div class="searchbar">
+                    <form action="/search" method="get">
+                         <input class="navbar-search" type="text" name="query" placeholder="searh book" oninput="searchBook(event)">
+                         <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-results">
+                         
+                    </div>
+               </div>
+          </div>
+          <div class="right sm-hide">
+               <div class="user">
+                    <div class="username">{{user.username}}</div>
+                    <div class="picture">B</div>
+               </div>
+          </div>
+     </nav>
+     <div class="main">
+          <div class="left sm-hide">
+               <a href="/newBook" class="new-book">New Book</a>
+          </div>
+          <div class="center">User {{ user.username }} </div>
+          <div class="right sm-hide">Right</div>
+     </div>
+<script src="https://kit.fontawesome.com/b5b791cd78.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
